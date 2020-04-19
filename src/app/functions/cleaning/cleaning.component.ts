@@ -9,6 +9,10 @@ export class CleaningComponent implements OnInit {
 
   constructor() { }
 
+  public cleaning() {
+    alert("Rozpoczęto czyszczenie");
+}
+
   ngOnInit() {
   }
 

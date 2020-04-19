@@ -7,7 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoilingComponent implements OnInit {
 
-  constructor() { }
+  temperature: number = 0;
+  interval;
+
+  constructor() {
+    this.temperature=0;
+  }
+
+  public startBoiling() {
+    this.interval = setInterval(() => {
+      if(this.temperature >= 0) {
+        this.temperature++;
+      } else {
+        this.temperature = 0;
+      }
+    },1000)
+  }
+
+  public stopBoiling() {
+    clearInterval(this.interval);
+  }
 
   ngOnInit() {
   }

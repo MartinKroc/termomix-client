@@ -4,15 +4,16 @@
       <div class="containerBox">
         <h3 style="text-align: center">Mikser</h3><br/>
         <div class="text-box">
-          <h4>... obr/min</h4>
-          <button type="button" class="btn btn-success text btnsize">+</button>
-          <button type="button" class="btn btn-danger text btnsize">-</button><br/><br/>
+          <h4>{{o}} obr/minute</h4>
+          <button (mousedown)="mousedown()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
+          <button (mousedown)="mousedowndel()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
         </div>
-        <img src="./assets/clock.png" alt="..." class="rounded-circle img-fluid img-responsive">
+        <div class="shadow p-3 mb-5 bg-white rounded"><img src="./assets/clock.png" alt="..." class="rounded-circle img-fluid img-responsive"></div>
       </div>
     </div>
     <div class="col-sm">
-      <button type="button" class="btn btn-success text" style="height: 200px; width: 300px; margin-top: 230px"><h2>Zacznij miksowanie</h2></button>
+      <button (click)="mixerAlert()" type="button" class="btn btn-success text" style="height: 200px; width: 300px; margin-top: 230px"><h2>Zacznij miksowanie</h2></button>
+      <button (click)="mixerAlertEnd()" type="button" class="btn btn-warning text" style="height: 200px; width: 300px; margin-top: 230px"><h2>Zakończ miksowanie</h2></button>
     </div>
   </div>
 </div>

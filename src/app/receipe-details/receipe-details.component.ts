@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+
+import {receipes} from "../receipes/receipes";
 
 @Component({
   selector: 'app-receipe-details',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReceipeDetailsComponent implements OnInit {
 
-  constructor() { }
+  receipe;
+
+  constructor(private route: ActivatedRoute) {
+
+  }
+
+  public startCook() {
+    alert("Rozpoczęto gotowanie")
+}
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.receipe = receipes[+params.get('receipeId')];
+    });
   }
 
 }

@@ -1,80 +1,39 @@
 <div class="container">
+  <div *ngIf="receipe">
   <div class="row">
     <div class="col-sm">
-      <h1>Zupa dyniowa</h1>
-      <button class="btn btn-success mt-5">Rozpocznij gotowanie</button>
+      <h1>{{receipe.name}}</h1>
+      <button (click)="startCook()" class="btn btn-success mt-5">Rozpocznij gotowanie</button>
     </div>
     <div class="col-sm">
-      <img src="./assets/dyniowa.jpeg" class="card-img-top" alt="...">
+      <img src="{{receipe.photo}}" class="card-img-top" alt="...">
     </div>
   </div>
   <div class="row mt-5">
     <div class="col">
       <img src="./assets/receipe/gear.svg" class="card-img-top ricon" alt="...">
-      <h5>Trudność: łatwe</h5>
+      <h5>Trudność: {{receipe.dificulty}}</h5>
     </div>
     <div class="col">
       <img src="./assets/receipe/money.svg" class="card-img-top ricon" alt="...">
-      <h5>Cena: niska</h5>
+      <h5>Cena: {{receipe.price}}</h5>
     </div>
     <div class="col">
       <img src="./assets/receipe/clock.svg" class="card-img-top ricon" alt="...">
-      <h5>Czas: 30 min</h5>
+      <h5>Czas: {{receipe.cookingTime}}</h5>
     </div>
   </div>
   <div class="row mt-5">
     <div class="col-4">
       <h4>Składniki</h4>
-      <p>1 mała dynia Hokkaido (do 1 kg)
-        2 ziemniaki
-        2 marchewki
-        1 litr bulionu (wcześniej ugotowanego, ewentualnie z kostki rosołowej)
-        1 mała cebula
-        sok z połowy cytryny
-        ½ łyżeczki zmielonego imbiru w proszku (lub świeżego, tylko to już do smaku, bo świeży imbir jest bardziej intensywny)
-        sól, pieprz, gałka muszkatołowa, cukier
-        trochę słodkiej śmietany 30- 36% (dodaję ok. 100ml)
-      </p>
+      <p>{{receipe.ingredients}}</p>
       <h4>Wartości odżywcze</h4>
-      <p>witamina A – 2mg/100g,
-
-        witamina B1 – 50mcg/100g,
-
-        witamina B2 – 60mcg/100g,
-
-        witamina B6 – 0,06mg/100g,
-
-        witamina C – 8mg/100g,
-
-        witamina E – 1,06mg/100g,
-
-        witamina K – 1,1ug/100g,
-
-        tiaminy – 0,5mg/100g,
-
-        ryboflawiny – 0,11mg/100g
-
-        niacyny – 0,6mg/100g
-
-        żelazo – 0,8mg/100g,
-
-        wapń – 66mg/100g,
-
-        potas – 278mg/100g,
-
-        magnez – 14mg/100g,
-
-        fosfor – 43mg/100g, [3]</p>
+      <p>{{receipe.nvalues}}</p>
     </div>
     <div class="col-8">
       <h4>Przygotowanie</h4>
-      <p>Dynię umyć, przekroić na pół, oczyścić z pestek i włókien. Następnie pokroić w kostkę razem ze skórką.
-        Ziemniaki i marchewki umyć, obrać i pokroić w kostkę.
-        Cebulę obrać i pokroić w kostkę.
-        Dynię, ziemniaki, marchewki i cebulę ugotować na bulionie do miękkości.
-        Zupę zmiksować np. blenderem na krem.
-        Doprawić sokiem z cytryny, imbirem, solą, pieprzem, gałką muszkatołową i szczyptą cukru.
-        Dodać śmietanę. (Można ją dodać podczas miksowania lub dolać do zupy rozlanej na talerzach).</p>
+      <p>{{receipe.preparing}}</p>
     </div>
+  </div>
   </div>
 </div>

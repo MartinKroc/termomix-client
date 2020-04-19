@@ -3,9 +3,9 @@
     <div class="col-sm">
       <div class="containerBox">
         <div class="text-box">
-          <h4>36 C</h4><br/><br/>
-          <button type="button" class="btn btn-success text btnsize">+</button>
-          <button type="button" class="btn btn-danger text btnsize">-</button>
+          <h4>{{tempup}}<sup>o</sup>C</h4><br/><br/>
+          <button (mousedown)="mousedown()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
+          <button (mousedown)="mousedowndel()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded"><img src="./assets/clock.png" alt="..." class="rounded-circle img-fluid img-responsive"></div>
       </div>
@@ -13,9 +13,21 @@
     <div class="col-sm">
       <div class="containerBox">
         <div class="text-box">
-          <h4>01:12:04</h4><br/><br/>
-          <button type="button" class="btn btn-success text btnsize">+</button>
-          <button type="button" class="btn btn-danger text btnsize">-</button>
+          <h4>{{h}}:{{m}}:{{s}}</h4><br/><br/>
+          <ul class="list-group">
+            <li class="list-group-item">
+              godzin: <button (mousedown)="mousedownh()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
+              <button (mousedown)="mousedowndelh()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
+            </li>
+            <li class="list-group-item">
+              minut : <button (mousedown)="mousedownm()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
+              <button (mousedown)="mousedowndelm()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
+            </li>
+            <li class="list-group-item">
+              sekund: <button (mousedown)="mousedowns()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
+              <button (mousedown)="mousedowndels()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
+            </li>
+          </ul>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded"><img src="./assets/clock.png" alt="..." class="rounded-circle img-fluid img-responsive"></div>
       </div>
@@ -23,15 +35,15 @@
     <div class="col-sm">
       <div class="containerBox">
         <div class="text-box">
-          <h4>300 obr/s</h4><br/><br/>
-          <button type="button" class="btn btn-success text btnsize">+</button>
-          <button type="button" class="btn btn-danger text btnsize">-</button>
+          <h4>{{o}} obr/m</h4><br/><br/>
+          <button (mousedown)="mousedowno()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
+          <button (mousedown)="mousedowndelo()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
         </div>
         <div class="shadow p-3 mb-5 bg-white rounded"><img src="./assets/clock.png" alt="..." class="rounded-circle img-fluid img-responsive"></div>
       </div>
     </div>
   </div>
-  <br/><br/><br/><br/><br/><br/>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
   <h3>Dostępne funkcje manualne</h3>
   <br/> <br/>
   <div class="row">

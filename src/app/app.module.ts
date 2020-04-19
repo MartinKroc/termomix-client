@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,10 @@ import { BoilingComponent } from './functions/boiling/boiling.component';
 const appRoutes: Routes = [
   {
     path: 'start',
+    component: NavbarComponent
+  },
+  {
+    path: '',
     component: NavbarComponent
   },
   {
@@ -49,7 +54,7 @@ const appRoutes: Routes = [
     component: OptionsComponent
   },
   {
-    path: 'details',
+    path: 'receipes/:receipeId',
     component: ReceipeDetailsComponent
   }
 ];
@@ -71,6 +76,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

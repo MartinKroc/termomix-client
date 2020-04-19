@@ -18,23 +18,20 @@
     </div>
   </div>
 </div>
-<div class="container">
+
+
+
   <div class="row mt-2">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="./assets/dyniowa.jpeg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Zupa dyniowa</h5>
-          <p class="card-text">Ocena: 4.5</p>
-          <a routerLink="/details" class="btn btn-success">więcej</a>
+    <div class="d-flex flex-row bd-highlight mb-3 mt-5 ml-5 mr-5">
+      <div *ngFor="let receipe of receipes | filter:term; index as receipeId" class="container">
+        <div class="card">
+          <img src="{{receipe.photo}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{receipe.name}}</h5>
+            <p class="card-text">Ocena: {{receipe.mark}}</p>
+            <a [title]="receipe.name + ' details'" [routerLink]="['/receipes',receipeId]" class="btn btn-success">więcej</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-
-    </div>
-  </div>
 </div>

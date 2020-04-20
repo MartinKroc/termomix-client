@@ -54,5 +54,71 @@ export const receipes = [
       '2. Orzechy nerkowca prażę na suchej patelni .\n' +
       'Układam kwiatki bratka na sałatce.\n' +
       '3. Mieszam składniki potrzebne do sosu miodowego i polewam sałatkę .'
-  }
+  },
+  {
+    id: 4,
+    name: 'Bułeczki jogurtowe',
+    photo: './assets/bulki.jpeg',
+    mark: '4,3',
+    dificulty: 'łatwe',
+    price: 'niska',
+    cookingTime: '60 min',
+    ingredients: '350 g mąki pszennej\n' +
+      '230 g jogurtu naturalnego\n' +
+      '16 g proszku do pieczenia\n' +
+      '70 ml oleju rzepakowego\n' +
+      '2 szczypty soli\n' +
+      'łyżeczka cukru\n' +
+      '\n' +
+      'Dodatkowo:\n' +
+      'odrobina mleka\n' +
+      'odrobina maku, sezamu lub słonecznika',
+    nvalues: 'pożywne i smaczne',
+    preparing: '1. Zagnieść: mąkę, jogurt, proszek do pieczenia, olej, sól i cukier.\n' +
+      'Gotowe ciasto przełożyć na stolnicę obsypaną mąką.\n' +
+      'Odrywać po kawałku i formować.\n' +
+      'Bułeczki w odstępach ułożyć na blasze wyłożonej papierem do pieczenia.\n' +
+      'Na środku każdej bułki zrobić krzyżyk.\n' +
+      'Za pomocą pędzelka posmarować mlekiem i posypać dowolnie: makiem, sezamem lub słonecznikiem.\n' +
+      'Włożyć do rozgrzanego piekarnika i piec około 20-25 min (termoobieg) w temp. 160 stopni do zarumienienia.'
+  },
+  {
+    id: 5,
+    name: 'Pizzerinki ze szparagami',
+    photo: './assets/pizza.jpeg',
+    mark: '5,0',
+    dificulty: 'średni',
+    price: 'średnia',
+    cookingTime: '30 min',
+    ingredients: '1 saszetka suszonych drożdży instant (7 g),\n' +
+      '300 ml ciepłej wody,\n' +
+      '1 łyżeczka cukru,\n' +
+      '2 łyżki masła,\n' +
+      '500 g mąki pszennej,\n' +
+      '1 łyżeczka soli,\n' +
+      '1 łyżeczka suszonej bazyli.\n' +
+      'Dodatki;\n' +
+      'około 1 szklanki ketchupu,\n' +
+      '1 cebula duża,\n' +
+      'pęczek szparagów,\n' +
+      'około 150-200 g ulubionej kiełbaski,\n' +
+      'sól i pieprz do smaku,\n' +
+      'suszona bazylia.',
+    nvalues: 'Smaczne pizzerinki z dodatkiem szparagów, cebuli i kiełbaski. Idealnie pasują z ulubionym sosem. Są bardzo smaczne również na zimno.',
+    preparing: '1. Ciepłą wodę wlewamy do miski. Wsypujemy drożdże, sól, cukier i bazylię. Mieszamy i odstawiamy na 15 minut.\n' +
+      '2. Mąkę przesiewamy do miski, wlewamy rozczyn i zagniatamy ciasto.\n' +
+      'Na koniec wlewamy rozpuszczone masło i zagniatamy do momentu uzyskania gładkiego ciasta.\n' +
+      '3. Ciasto przykrywamy ściereczką i odstawiamy na 30 minut.\n' +
+      'Ciasto dzielimy na kuleczki ( kuleczka wielkości mandarynki).\n' +
+      'Spłaszczamy i wykładamy na natłuszczoną blaszkę.\n' +
+      'Każdy placek smarujemy kechupem.\n' +
+      'Cebulę obieramy i kroimy w piórka.\n' +
+      'Kiełbaskę kroimy w plasterki.\n' +
+      'Szaparagi kroimy w kostkę.\n' +
+      'Ser trzemy na tarce o dużych oczkach.\n' +
+      'Na każdy placek układamy kilka cebulę, kiełbaskę i szaparagi, posypujemy serem.\n' +
+      '4. Posypujemy odrobiną soli i pieprzu oraz suszoną bazylią.\n' +
+      'Pieczemy 20-25 minut w 190 stopniach.\n' +
+      'Podajemy z ulubionymi sosami.'
+  },
 ]

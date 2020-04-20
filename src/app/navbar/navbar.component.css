@@ -21,3 +21,7 @@
   opacity: 0.3;
   filter: alpha(opacity=30);
 }
+h1 {
+  font-size:5vw;
+  font-family: "Candara";
+}

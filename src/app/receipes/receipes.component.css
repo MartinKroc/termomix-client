@@ -12,4 +12,7 @@
   text-align: center;
   width: 60%; /* Set the width of the positioned div */
 }
-
+h1 {
+  font-size:5vw;
+  font-family: "Candara";
+}

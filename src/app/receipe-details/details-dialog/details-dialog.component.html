@@ -1,0 +1,15 @@
+
+<mat-dialog-actions>
+  <div *ngIf="showA">
+    <h2 mat-dialog-title>Informacja</h2>
+    <mat-dialog-content>Proszę włożyć wymagane składniki, gotowanie rozpocznie się po zaakceptowaniu</mat-dialog-content>
+    <button (click)="showS()" mat-button>Gotowe, rozpocznij</button>
+    <button mat-button mat-dialog-close>Anuluj</button>
+  </div>
+</mat-dialog-actions>
+
+<mat-spinner *ngIf="showSpinner"></mat-spinner>
+<div *ngIf="showEnd">
+  <mat-dialog-content>Gotowanie pomyślnie zakończono</mat-dialog-content>
+  <button mat-button mat-dialog-close>Zakończ</button>
+</div>

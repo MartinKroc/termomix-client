@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {MatDialog} from "@angular/material";
 
 import {receipes} from "../receipes/receipes";
+import {DetailsDialogComponent} from "./details-dialog/details-dialog.component";
 
 @Component({
   selector: 'app-receipe-details',
@@ -12,12 +14,14 @@ export class ReceipeDetailsComponent implements OnInit {
 
   receipe;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute, public dialog: MatDialog
+  ) {
 
   }
 
   public startCook() {
-    alert("Rozpoczęto gotowanie")
+    this.dialog.open(DetailsDialogComponent);
 }
 
   ngOnInit() {

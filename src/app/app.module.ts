@@ -16,6 +16,11 @@ import { WeightComponent } from './functions/weight/weight.component';
 import { CleaningComponent } from './functions/cleaning/cleaning.component';
 import { MixerComponent } from './functions/mixer/mixer.component';
 import { BoilingComponent } from './functions/boiling/boiling.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailsDialogComponent } from './receipe-details/details-dialog/details-dialog.component';
+
+import {MatDialogModule, MatButtonModule, MatProgressSpinnerModule} from "@angular/material";
+import { FunctionsDialogComponent } from './functions/functions-dialog/functions-dialog.component';
 
 const appRoutes: Routes = [
   {
@@ -72,14 +77,21 @@ const appRoutes: Routes = [
     WeightComponent,
     CleaningComponent,
     MixerComponent,
-    BoilingComponent
+    BoilingComponent,
+    DetailsDialogComponent,
+    FunctionsDialogComponent
   ],
+  entryComponents: [DetailsDialogComponent, FunctionsDialogComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]

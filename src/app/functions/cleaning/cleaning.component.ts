@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material";
+import {FunctionsDialogComponent} from "../functions-dialog/functions-dialog.component";
 
 @Component({
   selector: 'app-cleaning',
@@ -7,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CleaningComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   public cleaning() {
-    alert("Rozpoczęto czyszczenie");
+    this.dialog.open(FunctionsDialogComponent)
 }
 
   ngOnInit() {

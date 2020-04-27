@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material";
 
 import {receipes} from "../receipes/receipes";
 import {DetailsDialogComponent} from "./details-dialog/details-dialog.component";
+import {opinions} from "./opinions/opinions";
 
 @Component({
   selector: 'app-receipe-details',
@@ -13,6 +14,8 @@ import {DetailsDialogComponent} from "./details-dialog/details-dialog.component"
 export class ReceipeDetailsComponent implements OnInit {
 
   receipe;
+  showOpinions = false;
+  opinions = opinions;
 
   constructor(
     private route: ActivatedRoute, public dialog: MatDialog
@@ -22,6 +25,9 @@ export class ReceipeDetailsComponent implements OnInit {
 
   public startCook() {
     this.dialog.open(DetailsDialogComponent);
+}
+  public showAlert() {
+    alert("Wysłano opinie");
 }
 
   ngOnInit() {

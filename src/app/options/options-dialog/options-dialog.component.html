@@ -1,7 +1,7 @@
 <mat-dialog-actions>
-  <div *ngIf="showCleaning">
+  <div *ngIf="showAct">
     <h2 mat-dialog-title>Informacja</h2>
-    <mat-dialog-content>Proszę wyjąć wszystkie produkty z pojemnika, następnie zatwierdzić</mat-dialog-content>
+    <mat-dialog-content>Nastąpi wyszukiwanie aktualizacji</mat-dialog-content>
     <button (click)="showS()" mat-button>Rozpocznij</button>
     <button mat-button mat-dialog-close>Anuluj</button>
   </div>
@@ -9,6 +9,6 @@
 
 <mat-spinner *ngIf="showSpinner"></mat-spinner>
 <div *ngIf="showEnd">
-  <mat-dialog-content>Zakończono</mat-dialog-content>
+  <mat-dialog-content>Zakończono, nie znaleziono aktualizacji</mat-dialog-content>
   <button mat-button mat-dialog-close>Zakończ</button>
 </div>

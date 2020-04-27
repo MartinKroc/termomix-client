@@ -19,8 +19,10 @@ import { BoilingComponent } from './functions/boiling/boiling.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsDialogComponent } from './receipe-details/details-dialog/details-dialog.component';
 
-import {MatDialogModule, MatButtonModule, MatProgressSpinnerModule} from "@angular/material";
+import {MatDialogModule, MatButtonModule, MatProgressSpinnerModule, MatTooltipModule} from "@angular/material";
 import { FunctionsDialogComponent } from './functions/functions-dialog/functions-dialog.component';
+import { OpinionsComponent } from './receipe-details/opinions/opinions.component';
+import { OptionsDialogComponent } from './options/options-dialog/options-dialog.component';
 
 const appRoutes: Routes = [
   {
@@ -79,15 +81,18 @@ const appRoutes: Routes = [
     MixerComponent,
     BoilingComponent,
     DetailsDialogComponent,
-    FunctionsDialogComponent
+    FunctionsDialogComponent,
+    OpinionsComponent,
+    OptionsDialogComponent,
   ],
-  entryComponents: [DetailsDialogComponent, FunctionsDialogComponent],
+  entryComponents: [DetailsDialogComponent, FunctionsDialogComponent, OptionsDialogComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
     FormsModule,

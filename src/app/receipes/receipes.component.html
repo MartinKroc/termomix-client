@@ -7,7 +7,7 @@
             <img src="./assets/receipes1.jpg" class="img-fluid" alt="receipes">
             <div class="text">
               <div class="p-3 mb-2 bg-light text-dark"><h1>Co dziś gotujemy?</h1><p></p><p></p>
-                  <input class="form-control mr-sm-2" type="text" placeholder="wpisz danie" aria-label="Search" [(ngModel)]="term"><p></p>
+                  <input class="form-control mr-sm-2" type="text" placeholder="wpisz danie" aria-label="Search" [(ngModel)]="term" matTooltip="Na poniższej liście wyświetlą się szukane produkty"><p></p>
               </div>
             </div>
           </div>
@@ -23,7 +23,7 @@
       <div class="card-body">
         <h5 class="card-title">{{receipe.name}}</h5>
         <p class="card-text">Ocena: {{receipe.mark}}</p>
-        <a [title]="receipe.name + ' details'" [routerLink]="['/receipes',receipeId]" class="btn btn-success">więcej</a>
+        <a [title]="receipe.name + ' details'" [routerLink]="['/receipes',receipeId]" class="btn btn-success" matTooltip="Sprawdź przepis i opinie, rozpocznij gotowanie">więcej</a>
       </div>
     </div>
   </div>

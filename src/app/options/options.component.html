@@ -18,7 +18,7 @@
       </ul>
     </div>
     <div class="col">
-      <button type="button" class="btn btn-success mt-5">Sprawdź aktualizacje</button>
+      <button (click)="startAct()" type="button" class="btn btn-success mt-5">Sprawdź aktualizacje</button>
     </div>
   </div>
   <div class="row mt-5">
@@ -112,7 +112,7 @@
                 <div class="col-auto my-1">
                   <label class="mr-sm-2 sr-only" for="syst">System miar:</label>
                   <select class="custom-select mr-sm-2" id="syst">
-                    <option selected>Sysyem miar</option>
+                    <option selected>System miar</option>
                     <option value="1">metryczne</option>
                     <option value="2">imperialne</option>
                   </select>

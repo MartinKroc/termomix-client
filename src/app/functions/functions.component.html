@@ -4,8 +4,8 @@
       <div class="containerBox">
         <div class="text-box">
           <h4>{{tempup}}<sup>o</sup>C</h4><br/><br/>
-          <button (mousedown)="mousedown()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
-          <button (mousedown)="mousedowndel()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
+          <button (mousedown)="mousedown()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize" matTooltip="Zwiększ temperature">+</button>
+          <button (mousedown)="mousedowndel()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize" matTooltip="Zmniejsz temperature">-</button>
         </div>
         <div><img src="./assets/clock.png" alt="..." class="rounded-circle img-fluid img-responsive shadow p-3 mb-5 bg-white rounded"></div>
       </div>
@@ -36,14 +36,14 @@
       <div class="containerBox">
         <div class="text-box">
           <h4>{{o}} obr/m</h4><br/><br/>
-          <button (mousedown)="mousedowno()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize">+</button>
-          <button (mousedown)="mousedowndelo()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize">-</button>
+          <button (mousedown)="mousedowno()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-success text btnsize" matTooltip="Zwiększ obroty">+</button>
+          <button (mousedown)="mousedowndelo()" (mouseup)="mouseup()" (mouseleave)="mouseup()" type="button" class="btn btn-danger text btnsize" matTooltip="Zmniejsz obroty">-</button>
         </div>
         <div><img src="./assets/clock.png" alt="..." class="rounded-circle img-fluid img-responsive shadow p-3 mb-5 bg-white rounded"></div>
       </div>
     </div>
   </div>
-  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
   <h3>Dostępne funkcje manualne</h3>
   <br/> <br/>
   <div class="row">
@@ -52,7 +52,7 @@
         <div class="text-box">
           <a routerLink="/functions/weight"><img src="./assets/icons/weight.svg" class="icons"/></a><h5>Waga</h5>
         </div>
-        <div><img src="./assets/clock.png" alt="..." class="picsm rounded-circle img-responsive shadow p-3 mb-5 bg-white rounded"></div>
+        <img src="./assets/clock.png" alt="..." class="picsm rounded-circle img-responsive shadow p-3 mb-5 bg-white rounded" matTooltip="Umieść produkt na pojemniku">
       </div>
     </div>
     <div class="col">

@@ -1,0 +1,13 @@
+<div *ngFor="let opinion of opinions" class="col-md-4 mt-4">
+  <div class="card">
+    <div class="card-header">
+      Wystawiona ocena: {{opinion.indMark}}
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{opinion.content}}</p>
+    </div>
+    <div class="card-footer text-muted">
+      {{opinion.data}}
+    </div>
+  </div>
+</div>

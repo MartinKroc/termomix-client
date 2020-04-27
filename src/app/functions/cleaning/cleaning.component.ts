@@ -12,6 +12,7 @@ export class CleaningComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   public cleaning() {
+
     this.dialog.open(FunctionsDialogComponent)
 }
 

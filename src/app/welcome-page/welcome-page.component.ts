@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePageComponent implements OnInit {
 
+  time = new Date();
+
   constructor() { }
 
   ngOnInit() {
+    setInterval(() => {
+      this.time = new Date();
+    }, 1000);
   }
 
 }

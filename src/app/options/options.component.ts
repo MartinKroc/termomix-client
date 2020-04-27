@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material";
+import {OptionsDialogComponent} from "./options-dialog/options-dialog.component";
 
 @Component({
   selector: 'app-options',
@@ -6,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
-  constructor() { }
+
+  constructor( public dialog: MatDialog) { }
+
+  public startAct() {
+    this.dialog.open(OptionsDialogComponent);
+  }
 
   ngOnInit() {
   }

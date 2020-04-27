@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-functions-dialog',
-  templateUrl: './functions-dialog.component.html',
-  styleUrls: ['./functions-dialog.component.css']
+  selector: 'app-options-dialog',
+  templateUrl: './options-dialog.component.html',
+  styleUrls: ['./options-dialog.component.css']
 })
-export class FunctionsDialogComponent implements OnInit {
+export class OptionsDialogComponent implements OnInit {
 
   showSpinner = false;
   showEnd = false;
-
-  showCleaning = true;
+  showAct = true;
 
 
   constructor() { }
 
   private showS() {
-    this.showCleaning = false;
+    this.showAct = false;
     this.showSpinner = true;
     setTimeout(() => {
       this.showSpinner = false;

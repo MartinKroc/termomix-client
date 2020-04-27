@@ -33,8 +33,9 @@
     <div class="col-8">
       <h4>Przygotowanie</h4>
       <p>{{receipe.preparing}}</p>
-      <br/><br/><br/><br/>
+      <br/>
       <h4>Oceń przepis</h4>
+      <form>
       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
         <option selected>Ocena</option>
         <option value="1">1</option>
@@ -43,8 +44,30 @@
         <option value="3">4</option>
         <option value="3">5</option>
       </select>
-      <button type="submit" class="btn btn-success">Wyślij</button>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="treść"></textarea><br/>
+      <button (click)="showAlert()" type="submit" class="btn btn-success">Wyślij</button>
+      </form><br/>
+      <button (click)="showOpinions=true" type="submit" class="btn btn-outline-dark">Pokaż opinie</button>
     </div>
   </div>
+    <div class="row">
+      <div *ngIf="showOpinions" class="col">
+        <div *ngFor="let opinion of opinions" class="mt-4">
+          <div *ngIf="opinion.did == receipe.id">
+            <div class="card">
+              <div class="card-header">
+                Wystawiona ocena: {{opinion.indMark}}
+              </div>
+              <div class="card-body">
+                <p class="card-text">{{opinion.content}}</p>
+              </div>
+              <div class="card-footer text-muted">
+                {{opinion.data}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

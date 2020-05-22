@@ -12,7 +12,7 @@
   <div class="row mt-5">
     <div class="col">
       <img src="./assets/receipe/gear.svg" class="card-img-top ricon" alt="...">
-      <h5>Trudność: {{receipe.dificulty}}</h5>
+      <h5>Trudność: {{receipe.difficulty}}</h5>
     </div>
     <div class="col">
       <img src="./assets/receipe/money.svg" class="card-img-top ricon" alt="...">
@@ -35,37 +35,57 @@
       <p>{{receipe.preparing}}</p>
       <br/>
       <h4>Oceń przepis</h4>
-      <form>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Ocena</option>
+<!--      <form>
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="model.mark">
+        <option selected >Ocena</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="3">4</option>
         <option value="3">5</option>
       </select>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="treść"></textarea><br/>
-      <button (click)="showAlert()" type="submit" class="btn btn-success">Wyślij</button>
-      </form><br/>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="treść" [(ngModel)]="model.content"></textarea><br/>
+      <button (click)="addOpinion()" type="submit" class="btn btn-success">Wyślij</button>
+      </form>-->
+      <form name="form" #f="ngForm" (submit)="addOpinion()" novalidate class="feedback-form">
+        <div class="form-group">
+          <label>Ocena: </label>
+          <select class="custom-select mr-sm-2" [(ngModel)]="model.mark" name ="sel">
+            <option selected >Ocena</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="3">4</option>
+            <option value="3">5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Wprowadź opinie</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="treść" [(ngModel)]="model.content" name="tex"></textarea><br/>
+        </div>
+        <button type="submit" class="btn btn-info pull-right">
+          <i class="fa fa-envelope-o"></i>
+          <span> Wyślij</span>
+        </button>
+      </form>
+      <br/>
       <button (click)="showOpinions=true" type="submit" class="btn btn-outline-dark">Pokaż opinie</button>
     </div>
   </div>
     <div class="row">
       <div *ngIf="showOpinions" class="col">
-        <div *ngFor="let opinion of opinions" class="mt-4">
-          <div *ngIf="opinion.did == receipe.id">
+        <div *ngFor="let opinion of opinion" class="mt-4">
             <div class="card">
               <div class="card-header">
-                Wystawiona ocena: {{opinion.indMark}}
+                Wystawiona ocena: {{opinion.mark}}
               </div>
               <div class="card-body">
                 <p class="card-text">{{opinion.content}}</p>
               </div>
               <div class="card-footer text-muted">
-                {{opinion.data}}
+                {{opinion.username}}
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>

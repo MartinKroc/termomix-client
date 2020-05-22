@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Historia dań</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div *ngFor="let row of rows">
+      <tr>
+        <th scope="row">{{row.id}}</th>
+        <td>{{row.name}}</td>
+      </tr>
+    </div>
+    </tbody>
+  </table>
+</div>
+

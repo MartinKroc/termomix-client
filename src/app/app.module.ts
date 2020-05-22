@@ -23,6 +23,13 @@ import {MatDialogModule, MatButtonModule, MatProgressSpinnerModule, MatTooltipMo
 import { FunctionsDialogComponent } from './functions/functions-dialog/functions-dialog.component';
 import { OpinionsComponent } from './receipe-details/opinions/opinions.component';
 import { OptionsDialogComponent } from './options/options-dialog/options-dialog.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {TokenInterceptorService} from "./shared/token-interceptor.service";
+import {AuthGuard} from "./auth.guard";
 
 const appRoutes: Routes = [
   {
@@ -36,6 +43,24 @@ const appRoutes: Routes = [
   {
     path: 'receipes',
     component: ReceipesComponent
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent
+  },
+  {
+    path: 'signin',
+    component: SignInComponent
+  },
+  {
+    path: 'user',
+    component: UserPanelComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'functions',
@@ -84,10 +109,15 @@ const appRoutes: Routes = [
     FunctionsDialogComponent,
     OpinionsComponent,
     OptionsDialogComponent,
+    SignUpComponent,
+    SignInComponent,
+    AdminPanelComponent,
+    UserPanelComponent,
   ],
   entryComponents: [DetailsDialogComponent, FunctionsDialogComponent, OptionsDialogComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
@@ -98,7 +128,12 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

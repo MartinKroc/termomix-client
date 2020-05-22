@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiServiceService} from "../shared/api-service.service";
 
 @Component({
   selector: 'app-welcome-page',
@@ -9,7 +10,7 @@ export class WelcomePageComponent implements OnInit {
 
   time = new Date();
 
-  constructor() { }
+  constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
     setInterval(() => {

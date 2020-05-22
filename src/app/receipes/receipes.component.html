@@ -17,12 +17,12 @@
 </div>
 
 <div class="row mt-5">
-  <div *ngFor="let receipe of receipes |filter:term; index as receipeId" class="col-md-4 mt-4">
+  <div *ngFor="let receipe of dishes |filter:term; index as receipeId" class="col-md-4 mt-4">
     <div class="card">
       <img src="{{receipe.photo}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{receipe.name}}</h5>
-        <p class="card-text">Ocena: {{receipe.mark}}</p>
+        <p class="card-text">Ocena: {{receipe.avgMark}}</p>
         <a [title]="receipe.name + ' details'" [routerLink]="['/receipes',receipeId]" class="btn btn-success" matTooltip="Sprawdź przepis i opinie, rozpocznij gotowanie">więcej</a>
       </div>
     </div>

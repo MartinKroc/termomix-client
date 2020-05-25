@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiServiceService} from "../../shared/api-service.service";
 
 @Component({
   selector: 'app-options-dialog',
@@ -10,9 +11,10 @@ export class OptionsDialogComponent implements OnInit {
   showSpinner = false;
   showEnd = false;
   showAct = true;
+  updateStatus: string;
 
 
-  constructor() { }
+  constructor(private apiService: ApiServiceService) { }
 
   private showS() {
     this.showAct = false;

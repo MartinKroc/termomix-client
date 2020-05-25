@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiServiceService} from "../shared/api-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +14,7 @@ export class SignUpComponent implements OnInit {
     password: ''
   };
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,10 +22,10 @@ export class SignUpComponent implements OnInit {
   Signup(): void {
     this.apiService.signUp(this.model).subscribe(
       res => {
-        location.reload();
+        this.router.navigate(['/start']);
       },
       err => {
-        alert('error while register user');
+        this.router.navigate(['/start']);
       }
     );
   }

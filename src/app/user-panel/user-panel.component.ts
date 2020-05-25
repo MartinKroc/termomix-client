@@ -10,7 +10,7 @@ import {Dish} from "../models/dish";
 })
 export class UserPanelComponent implements OnInit {
 
-  rows: Dish[] = [];
+  row: History[] = [];
 
   constructor(private apiService: ApiServiceService) { }
 
@@ -21,8 +21,8 @@ export class UserPanelComponent implements OnInit {
   public getHistory() {
     this.apiService.getUserDishes().subscribe(
       res => {
-        console.log(res);
-        this.rows = res.userDishes;
+        this.row= res;
+        console.log(this.row);
       },
       error => {
         alert('error has occured list history');

@@ -84,7 +84,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'options',
-    component: OptionsComponent
+    component: OptionsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'receipes/:receipeId',

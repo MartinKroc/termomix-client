@@ -8,6 +8,8 @@ import {DishViewModel} from "../admin-panel/admin-panel.component";
 import {Opinion} from "../models/opinion";
 import {History} from "../models/history";
 import {OpinionViewModel} from "../receipe-details/receipe-details.component";
+import {Options} from "../models/options";
+import {OptionViewModel} from "../options/options.component";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,8 @@ export class ApiServiceService {
   private HISTORY_URL = this.BASE_URL + '/api/user/history';
 
   private OPINION_URL = this.BASE_URL + '/api/opinion';
+
+  private OPTION_URL = this.BASE_URL + '/api/user/options';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -86,5 +90,22 @@ export class ApiServiceService {
 
   addToHistory(id): Observable<History> {
     return this.http.get<History>(this.HISTORY_URL + '/add/' + id);
+  }
+
+  //OPTIONS
+  getOptions(): Observable<Options> {
+    return this.http.get<Options>(this.OPTION_URL);
+  }
+
+  setOptions(option: OptionViewModel): Observable<any> {
+    return this.http.put(this.OPTION_URL, option);
+  }
+
+  checkUpdate(): Observable<string> {
+    return this.http.get<string>(this.OPTION_URL + '/update');
+  }
+
+  makeClean(): Observable<string> {
+    return this.http.get<string>(this.OPTION_URL + '/cleaning');
   }
 }

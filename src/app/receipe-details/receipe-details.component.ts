@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {MatDialog} from "@angular/material";
 
-//import {receipes} from "../receipes/receipes";
 import {DetailsDialogComponent} from "./details-dialog/details-dialog.component";
 import {opinions} from "./opinions/opinions";
 import {ApiServiceService} from "../shared/api-service.service";
-import {Dish} from "../models/dish";
 import {Opinion} from "../models/opinion";
 import {History} from "../models/history";
 
@@ -19,7 +17,6 @@ export class ReceipeDetailsComponent implements OnInit {
 
   receipe;
   showOpinions = false;
-  //opinions = opinions;
 
   opinion: Opinion[] = [];
   history: History;
@@ -41,17 +38,19 @@ export class ReceipeDetailsComponent implements OnInit {
   public startCook() {
     this.dialog.open(DetailsDialogComponent);
 
-    let numb = this.recNumb;
-    numb+=1;
-    this.apiService.addToHistory(numb).subscribe(
-      res => {
-        this.history=res;
-        console.log(res);
-      },
-      error => {
-        alert('error has occured add dish to history');
-      }
-    );
+    if(this.apiService.loggedIn()) {
+      let numb = this.recNumb;
+      numb+=1;
+      this.apiService.addToHistory(numb).subscribe(
+        res => {
+          this.history=res;
+          console.log(res);
+        },
+        error => {
+          alert('error has occured add dish to history');
+        }
+      );
+    }
 }
   public showAlert() {
     alert("Wysłano opinie");
@@ -62,7 +61,6 @@ export class ReceipeDetailsComponent implements OnInit {
       this.getDish(params.get('receipeId'));
       this.getOpinions(params.get('receipeId'));
       this.recNumb = Number(params.get('receipeId'));
-      //this.receipe = receipes[+params.get('receipeId')];
     });
   }
 

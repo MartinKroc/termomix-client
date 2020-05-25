@@ -47,6 +47,7 @@
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="treść" [(ngModel)]="model.content"></textarea><br/>
       <button (click)="addOpinion()" type="submit" class="btn btn-success">Wyślij</button>
       </form>-->
+      <div *ngIf="apiService.loggedIn()">
       <form name="form" #f="ngForm" (submit)="addOpinion()" novalidate class="feedback-form">
         <div class="form-group">
           <label>Ocena: </label>
@@ -68,6 +69,7 @@
           <span> Wyślij</span>
         </button>
       </form>
+      </div>
       <br/>
       <button (click)="showOpinions=true" type="submit" class="btn btn-outline-dark">Pokaż opinie</button>
     </div>

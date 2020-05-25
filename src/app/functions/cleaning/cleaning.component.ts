@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material";
 import {FunctionsDialogComponent} from "../functions-dialog/functions-dialog.component";
+import {ApiServiceService} from "../../shared/api-service.service";
 
 @Component({
   selector: 'app-cleaning',
@@ -9,14 +10,25 @@ import {FunctionsDialogComponent} from "../functions-dialog/functions-dialog.com
 })
 export class CleaningComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  resStat: string;
+
+  constructor(public dialog: MatDialog, private apiService: ApiServiceService) { }
 
   public cleaning() {
 
-    this.dialog.open(FunctionsDialogComponent)
+    this.dialog.open(FunctionsDialogComponent);
+
+    if(this.apiService.loggedIn()) {
+      this.apiService.makeClean().subscribe(
+        res => {
+          this.resStat = res;
+        },
+        error => {
+        }
+      );
+    }
 }
 
   ngOnInit() {
   }
-
 }

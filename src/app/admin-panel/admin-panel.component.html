@@ -5,9 +5,99 @@
   <div class="shipping-item" *ngFor="let dish of dishes">
     <span>{{ dish.id }}</span>
     <span>{{dish.name}}</span>
-    <span><a class="btn btn-outline-warning" (click)="updateDish(dish.id)">Edytuj</a>
+    <span><a class="btn btn-outline-warning" (click)="showEdit=!showEdit; modelupdate.id=dish.id">Edytuj</a>
     <a class="btn btn-outline-danger" (click)="deleteDish(dish.id)">Usuń</a></span>
   </div>
+
+
+  <div *ngIf="showEdit==true">
+    <form name="form2" #f="ngForm" (submit)="updateDish(modelupdate.id)" novalidate class="feedback-form">
+      <div class="form-group">
+        <label for="city">Nazwa</label>
+        <input type="text"
+               id="city"
+               class="form-control"
+               name="city"
+               placeholder=""
+               [(ngModel)]="modelupdate.name"
+               required/>
+      </div>
+      <div class="form-group">
+        <label>Cena</label>
+        <input type="text"
+               id="price"
+               class="form-control"
+               name="street"
+               placeholder=""
+               [(ngModel)]="modelupdate.price"
+               required/>
+      </div>
+      <div class="form-group">
+        <label>Czas gotowania</label>
+        <input type="text"
+               id="time"
+               class="form-control"
+               name="street"
+               placeholder=""
+               [(ngModel)]="modelupdate.cookingTime"
+               required/>
+      </div>
+      <div class="form-group">
+        <label>Składniki</label>
+        <input type="text"
+               id="mark"
+               class="form-control"
+               name="street"
+               placeholder=""
+               [(ngModel)]="modelupdate.ingredients"
+               required/>
+      </div>
+      <div class="form-group">
+        <label>Wartości odżywcze</label>
+        <input type="text"
+               id="nval"
+               class="form-control"
+               name="street"
+               placeholder=""
+               [(ngModel)]="modelupdate.nvalues"
+               required/>
+      </div>
+      <div class="form-group">
+        <label>Przygotowanie</label>
+        <input type="text"
+               id="prep"
+               class="form-control"
+               name="street"
+               placeholder=""
+               [(ngModel)]="modelupdate.preparing"
+               required/>
+      </div>
+      <label class="my-1 mr-2">Wybierz katogorie: </label>
+      <select class="custom-select my-1 mr-sm-2" id="countryss" name="cat" [(ngModel)]="modelupdate.categoryRaw">
+        <option selected>Kategoria</option>
+        <option value="SOUP">zupa</option>
+        <option value="WEGE">wege</option>
+        <option value="MEAT">mięso</option>
+      </select>
+      <label class="my-1 mr-2">Wybierz trudność: </label>
+      <select class="custom-select my-1 mr-sm-2" id="countrdy" name="d"[(ngModel)]="modelupdate.difficultyRaw">
+        <option selected>Trudność</option>
+        <option value="EASY">łatwe</option>
+        <option value="MEDIUM">średnie</option>
+        <option value="HARD">trudne</option>
+      </select>
+      <button type="submit" class="btn btn-info pull-right">
+        <i class="fa fa-envelope-o"></i>
+        <span> Wyślij</span>
+      </button>
+    </form>
+  </div>
+
+
+
+
+
+
 
   <p>Dodaj Przepis</p>
 
@@ -22,90 +112,74 @@
                    id="city"
                    class="form-control"
                    name="city"
-                   placeholder="city"
+                   placeholder=""
                    [(ngModel)]="model.name"
                    required/>
           </div>
           <div class="form-group">
-            <label for="street">Zdjęcie</label>
-            <input type="text"
-                   id="street"
-                   class="form-control"
-                   name="street"
-                   placeholder="street"
-                   [(ngModel)]="model.photo"
-                   required/>
-          </div>
-          <div class="form-group">
-            <label for="street">Cena</label>
+            <label>Cena</label>
             <input type="text"
                    id="price"
                    class="form-control"
                    name="street"
-                   placeholder="street"
+                   placeholder=""
                    [(ngModel)]="model.price"
                    required/>
           </div>
           <div class="form-group">
-            <label for="street">Czas gotowania</label>
+            <label>Czas gotowania</label>
             <input type="text"
                    id="time"
                    class="form-control"
                    name="street"
-                   placeholder="street"
+                   placeholder=""
                    [(ngModel)]="model.cookingTime"
                    required/>
           </div>
           <div class="form-group">
-            <label for="street">Składniki</label>
+            <label>Składniki</label>
             <input type="text"
                    id="mark"
                    class="form-control"
                    name="street"
-                   placeholder="street"
+                   placeholder=""
                    [(ngModel)]="model.ingredients"
                    required/>
           </div>
           <div class="form-group">
-            <label for="street">Wartości odżywcze</label>
+            <label>Wartości odżywcze</label>
             <input type="text"
                    id="nval"
                    class="form-control"
                    name="street"
-                   placeholder="street"
+                   placeholder=""
                    [(ngModel)]="model.nvalues"
                    required/>
           </div>
           <div class="form-group">
-            <label for="street">Przygotowanie</label>
+            <label>Przygotowanie</label>
             <input type="text"
                    id="prep"
                    class="form-control"
                    name="street"
-                   placeholder="street"
+                   placeholder=""
                    [(ngModel)]="model.preparing"
                    required/>
           </div>
-          <div class="form-group">
-            <label for="street">Kategoria</label>
-            <input type="text"
-                   id="street"
-                   class="form-control"
-                   name="street"
-                   placeholder="street"
-                   [(ngModel)]="model.category"
-                   required/>
-          </div>
-          <div class="form-group">
-            <label for="street">Trudność</label>
-            <input type="text"
-                   id="dif"
-                   class="form-control"
-                   name="street"
-                   placeholder="street"
-                   [(ngModel)]="model.difficulty"
-                   required/>
-          </div>
+          <label class="my-1 mr-2">Wybierz katogorie: </label>
+          <select class="custom-select my-1 mr-sm-2" id="countryss" name="cat" [(ngModel)]="model.categoryRaw">
+            <option selected>Kategoria</option>
+            <option value="SOUP">zupa</option>
+            <option value="WEGE">wege</option>
+            <option value="MEAT">mięso</option>
+          </select>
+          <label class="my-1 mr-2">Wybierz trudność: </label>
+          <select class="custom-select my-1 mr-sm-2" id="countrdy" name="d"[(ngModel)]="model.difficultyRaw">
+            <option selected>Trudność</option>
+            <option value="EASY">łatwe</option>
+            <option value="MEDIUM">średnie</option>
+            <option value="HARD">trudne</option>
+          </select>
           <button type="submit" class="btn btn-info pull-right">
             <i class="fa fa-envelope-o"></i>
             <span> Wyślij</span>

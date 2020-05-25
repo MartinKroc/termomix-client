@@ -10,6 +10,9 @@ import {Dish} from "../models/dish";
 })
 export class AdminPanelComponent implements OnInit {
 
+  showEdit = false;
+  currEdit = 0;
+
   model: DishViewModel = {
     id: 0,
   name: '',
@@ -20,8 +23,8 @@ export class AdminPanelComponent implements OnInit {
   ingredients: '',
   nvalues: '',
   preparing: '',
-  category: '',
-  difficulty: ''
+  categoryRaw: '',
+  difficultyRaw: ''
   };
 
   modelupdate: DishViewModel = {
@@ -34,8 +37,8 @@ export class AdminPanelComponent implements OnInit {
     ingredients: '',
     nvalues: '',
     preparing: '',
-    category: '',
-    difficulty: ''
+    categoryRaw: '',
+    difficultyRaw: ''
   };
 
   dishes: Dish[] = [];
@@ -58,12 +61,13 @@ export class AdminPanelComponent implements OnInit {
   }
 
   updateDish(id): void {
+    console.log(this.modelupdate);
     this.apiService.updateDish(this.modelupdate,id).subscribe(
       res => {
         location.reload();
       },
       err => {
-        alert('error while adding dish');
+        location.reload();
       }
     );
   }
@@ -74,7 +78,8 @@ export class AdminPanelComponent implements OnInit {
         location.reload();
       },
       err => {
-        alert('error while adding dish');
+        alert('błąd, danie zostało już przypisane do użytkownika');
+        location.reload();
       }
     );
   }
@@ -101,6 +106,6 @@ export interface DishViewModel {
   ingredients: string;
   nvalues: string;
   preparing: string;
-  category: string;
-  difficulty: string;
+  categoryRaw: string;
+  difficultyRaw: string;
 }

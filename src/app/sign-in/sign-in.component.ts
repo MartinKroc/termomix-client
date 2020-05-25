@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiServiceService} from "../shared/api-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -13,7 +14,7 @@ export class SignInComponent implements OnInit {
     password: ''
   };
 
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,10 +24,10 @@ export class SignInComponent implements OnInit {
       res => {
         console.log(res);
         localStorage.setItem('token', res.token);
-        location.reload();
+        this.router.navigate(['/start']);
       },
       err => {
-        alert('error while login user');
+        alert('zły login lub hasło');
       }
     );
   }

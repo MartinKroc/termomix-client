@@ -5,15 +5,15 @@
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Wersja:
-          <span class="badge badge-primary badge-pill">1.1</span>
+          <span class="badge badge-primary badge-pill">{{options.version}}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           wersja przepisów
-          <span class="badge badge-primary badge-pill">4.4</span>
+          <span class="badge badge-primary badge-pill">{{options.receipeVer}}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Data ostatniej aktualizacji
-          <span class="badge badge-primary badge-pill">01.01.2020</span>
+          <span class="badge badge-primary badge-pill">{{options.lastUpdate}}</span>
         </li>
       </ul>
     </div>
@@ -29,15 +29,11 @@
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Bieżący użytkownik
-          <span class="badge badge-primary badge-pill">Michał</span>
+          <span class="badge badge-primary badge-pill">{{options.username}}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Data rejestracji
-          <span class="badge badge-primary badge-pill">01.01.2019</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Ostatnia wizyta
-          <span class="badge badge-primary badge-pill">01.012.2020</span>
+          <span class="badge badge-primary badge-pill">{{options.regDate}}</span>
         </li>
       </ul>
     </div>
@@ -53,79 +49,55 @@
       Dane o konserwacji
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          Ostatni przegląd
-          <span class="badge badge-primary badge-pill">01.06.2019</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
           Ostatnie czyszczenie
-          <span class="badge badge-primary badge-pill">01.10.2019</span>
+          <span class="badge badge-primary badge-pill">{{options.lastClean}}</span>
         </li>
       </ul>
     </div>
   </div>
   <div class="row mt-5">
     <div class="col">
-      <form name="language">
+      <form name="language" (submit)="setOptions()">
       <ul class="list-group">
         <li class="list-group-item">
             <label class="my-1 mr-2" for="lan">Wybierz język: </label>
-            <select class="custom-select my-1 mr-sm-2" id="lan">
-              <option selected>Wybierz</option>
-              <option value="1">Polski</option>
-              <option value="2">Angielski</option>
-              <option value="3">Niemiecki</option>
+            <select class="custom-select my-1 mr-sm-2" id="lan" name="lan" [(ngModel)]="model.language">
+              <option selected>{{options.language}}</option>
+              <option value="Polski">Polski</option>
+              <option value="Angielski">Angielski</option>
+              <option value="Niemiecki">Niemiecki</option>
             </select>
         </li>
         <li class="list-group-item">
           <label class="my-1 mr-2" for="country">Wybierz kraj: </label>
-          <select class="custom-select my-1 mr-sm-2" id="country">
-            <option selected>Wybierz</option>
-            <option value="1">Polska</option>
-            <option value="2">Wielka Brytania</option>
-            <option value="3">Niemcy</option>
+          <select class="custom-select my-1 mr-sm-2" id="country" name="country" [(ngModel)]="model.country">
+            <option selected>{{options.country}}</option>
+            <option value="Polska">Polska</option>
+            <option value="Wielka Brytania">Wielka Brytania</option>
+            <option value="Niemcy">Niemcy</option>
           </select>
         </li>
       </ul>
-        <button type="submit" class="btn btn-success float-right">Zatwierdź</button>
-      </form>
-
-      <br/><br/>
-
-      <form name="properties">
         <ul class="list-group">
           <li class="list-group-item">
             <label for="voice">Dostosuj poziom głośności</label>
-            <input type="range" class="custom-range" id="voice">
+            <input type="range" class="custom-range" id="voice" value="{{options.voiceLevel}}" name="vm" [(ngModel)]="model.voiceLevel">
           </li>
           <li class="list-group-item">
             <label for="brightness">Dostosuj jasność ekranu</label>
-            <input type="range" class="custom-range" id="brightness">
+            <input type="range" class="custom-range" id="brightness" value="{{options.screenBright}}" name="sb" [(ngModel)]="model.screenBright">
           </li>
         </ul>
+        <br/>
+        <label>Dostosuj jednostki miar</label>
+        <select class="custom-select mr-sm-2" id="systss" name="ms" [(ngModel)]="model.sysMeter">
+          <option value>{{options.sysMeter}}</option>
+          <option value="metryczne">metryczne</option>
+          <option value="imperialne">imperialne</option>
+        </select>
+        <br/>
         <button type="submit" class="btn btn-success float-right">Zatwierdź</button>
       </form>
-
-      <br/><br/>
-
-        <ul class="list-group">
-          <li class="list-group-item">
-            <form name="weight">
-              <div class="form-row align-items-center">
-                <div class="col-auto my-1">
-                  <label class="mr-sm-2 sr-only" for="syst">System miar:</label>
-                  <select class="custom-select mr-sm-2" id="syst">
-                    <option selected>System miar</option>
-                    <option value="1">metryczne</option>
-                    <option value="2">imperialne</option>
-                  </select>
-                </div>
-                <div class="col-auto my-1">
-                  <button type="submit" class="btn btn-success">Zatwierdź</button>
-                </div>
-              </div>
-            </form>
-          </li>
-        </ul>
     </div>
   </div>
 </div>
